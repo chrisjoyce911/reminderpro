@@ -1,16 +1,7 @@
 import { ADD_REMINDER } from '../constants';
 
-const reminder = action => ({text: action.text, id: Math.random()})
-//don't need those extra parentheses around the argument or return if your using arrow functions why only use half the feature.
+const reminder = action => ({ text: action.text, id: Math.random() })
 
-const reminders = (state = [], action) => {
-    switch (action.type) {
-        case ADD_REMINDER:
-            return [...state, reminder(action)]
-        default:
-           return state;
-    }
-}
 // If you intending to use let it would appear this is the pattern you might follow otherwise the pattern about looks nicer.
 
 const reminders = (state = [], action) => {
@@ -21,12 +12,13 @@ const reminders = (state = [], action) => {
             console.log('reminders as state', reminders);
             break;
         case "another case":
-            reminders = [..state, yellow:"isn't yellow"]
+            reminders = [...state, { id: 2, text: 'yellow' }]
             break;
         default:
             return state;
-    return reminders
+
     }
+    return reminders
 }
 
 export default reminders;
