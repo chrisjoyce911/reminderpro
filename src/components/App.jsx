@@ -16,7 +16,8 @@ class App extends Component {
     }
 
     deleteReminder(id) {
-        this.props.deleteReminder(this.state.id);
+        console.log('deleteReminder(id)', id);
+        this.props.deleteReminder(id);
     }
 
     handleKeyPress = event => {
