@@ -7,12 +7,14 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            text: ''
+            text: '',
+            dueDate: ''
         }
     }
 
     addReminder() {
-        this.props.addReminder(this.state.text);
+        this.props.addReminder(this.state.text, this.state.dueDate);
+        console.log('addReminder() text,dueDate', this.state.text, this.state.dueDate);
     }
 
     deleteReminder(id) {
@@ -60,6 +62,11 @@ class App extends Component {
                             placeholder='I have to..'
                             onKeyPress={this.handleKeyPress}
                             onChange={event => this.setState({ text: event.target.value })}
+                        />
+                        <input
+                            className='form-control'
+                            type='datetime-local'
+                            onChange={event => this.setState({ dueDate: event.target.value })}
                         />
                     </div>
                     <button

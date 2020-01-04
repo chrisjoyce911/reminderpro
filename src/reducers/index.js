@@ -1,6 +1,6 @@
 import { ADD_REMINDER, DELETE_REMINDER } from '../constants';
 
-const reminder = action => ({ text: action.text, id: Math.random() })
+const reminder = action => ({ text: action.text, dueDate: action.dueDate, id: Math.random() })
 
 const removeById = (state = [], id) => {
     const reminders = state.filter(reminder => reminder.id !== id)
